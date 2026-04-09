@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART CLOUD ALARM</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container" id="setup-screen">
+        <header>
+            <div class="header-icon">
+                <i class="fas fa-clock fa-3x pulse-orange"></i>
+            </div>
+            <div class="digital-clock" id="digital-clock">00:00:00 AM</div>
+            <div class="current-date" id="current-date">Monday, 1 January</div>
+        </header>
+
+        <main>
+            <div class="alarm-card glass" id="alarm-display">
+                <div class="card-header">Next Alarm</div>
+                <div class="alarm-time" id="next-alarm-time">No Alarm Set</div>
+                <div class="countdown" id="alarm-countdown">Set a time to start</div>
+            </div>
+
+            <div class="setup-section glass">
+                <div class="picker-container">
+                    <div class="picker-group">
+                        <label>Hour</label>
+                        <select id="hour-picker"></select>
+                    </div>
+                    <div class="picker-group">
+                        <label>Minute</label>
+                        <select id="minute-picker"></select>
+                    </div>
+                    <div class="picker-group">
+                        <label>AM/PM</label>
+                        <select id="ampm-picker">
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="alarm-label">Label</label>
+                    <input type="text" id="alarm-label" placeholder="Wake up!">
+                </div>
+
+                <div class="input-group">
+                    <label for="sound-selection">Alarm Sound</label>
+                    <select id="sound-selection">
+                        <option value="beep">Beep Beep</option>
+                        <option value="tone">Classic Tone</option>
+                        <option value="music">Digital Melody</option>
+                    </select>
+                </div>
+
+                <div class="button-group">
+                    <button id="start-btn" class="btn primary">Start Alarm</button>
+                    <button id="test-btn" class="btn secondary">Test Alarm</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="ringing-screen hidden" id="ringing-screen">
+        <div class="ringing-content">
+            <div class="ringing-icon">
+                <i class="fas fa-bell fa-5x shake"></i>
+            </div>
+            <h1>Alarm is ringing!</h1>
+            <p id="ringing-label">Wake up!</p>
+            <div class="ringing-timer" id="auto-stop-timer">Auto-stopping in 60s</div>
+            <div class="button-group-vertical">
+                <button id="stop-btn" class="btn stop">Stop Alarm</button>
+                <button id="snooze-btn" class="btn snooze">Snooze 5 Minutes</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="alarm-audio" loop>
+        <source id="audio-source" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
